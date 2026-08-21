@@ -1,0 +1,137 @@
+{
+  "version": "1.1.0",
+  "experiences": [
+    {
+      "id": 4,
+      "role": "Head of the Interest and Talents Division",
+      "company": "Himpunan Mahasiswa Teknik Komputer USK",
+      "period": "Mar 2025 - Jan 2026",
+      "location": "Banda Aceh, Indonesia",
+      "logo": "/images/logo_himatekkom.png",
+      "createdAt": "2026-03-15T09:14:16.830Z",
+      "order": 0,
+      "description": "Led a team in planning and executing student development programs and organizational events.",
+      "position": null
+    },
+    {
+      "id": 5,
+      "role": "Machine Learning Intern",
+      "company": "Bank Syariah Indonesia",
+      "period": "Aug 2025 - Sep 2025",
+      "location": "Banda Aceh, Aceh, Indonesia",
+      "logo": "/images/logo_bsi.png",
+      "createdAt": "2026-03-15T09:14:17.086Z",
+      "order": 1,
+      "description": "Completed a Machine Learning internship at Bank Syariah Indonesia (BSI), focusing on sentiment analysis of user reviews for the BYOND by BSI application.",
+      "position": null
+    },
+    {
+      "id": 6,
+      "role": "Implementing Team",
+      "company": "PPK Ormawa (Program Penguatan Kapasitas Organisasi Kemahasiswaan)",
+      "period": "Jun 2024 - Oct 2024",
+      "location": "Banda Aceh, Aceh, Indonesia",
+      "logo": "/images/logoppk.png",
+      "createdAt": "2026-03-15T09:14:17.323Z",
+      "order": 2,
+      "description": "Developed features for a tourism application designed to promote local destinations and tourism services.",
+      "position": null
+    },
+    {
+      "id": 7,
+      "role": "Member of Talent and Interest Division",
+      "company": "Universitas Syiah Kuala",
+      "period": "Mar 2023 - Jan 2024",
+      "location": "Banda Aceh, Aceh, Indonesia",
+      "logo": "/images/logo_himatekkom.png",
+      "createdAt": "2026-03-15T09:14:17.558Z",
+      "order": 3,
+      "description": "Contributed to the organization and implementation of student activities and talent development programs.",
+      "position": null
+    }
+  ],
+  "aboutCards": [
+    {
+      "id": 1,
+      "title": "",
+      "content": " A Computer Engineering fresh graduate from Universitas Syiah Kuala with a strong interest in Artificial Intelligence, Machine Learning, and Deep Learning. Experienced in facial image classification research and published an AI-based Down Syndrome classification study. I also have experience in leadership, teamwork, and project development through student organizations and academic projects. Passionate about building practical intelligent solutions and continuously developing my skills in AI and software development..",
+      "icon": "",
+      "textColor": "text-gray-600 dark:text-gray-400",
+      "order": 0,
+      "createdAt": "2026-03-15T09:10:07.403Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 6,
+      "title": "Data Splitting Strategies for Down Syndrome Facial Classification: A Comparative Study Using EfficientNet-B0 and MobileNetV2",
+      "description": "Conducted a comparative study of Down Syndrome facial classification using EfficientNet-B0 and MobileNetV2 across 70:20:10 and 80:10:10 data-splitting strategies with five-fold cross-validation.",
+      "techStack": "Python, TensorFlow, Keras, OpenCV, Grad-CAM, Deep Learning",
+      "githubUrl": null,
+      "demoUrl": null,
+      "createdAt": "2026-04-08T07:58:43.539Z",
+      "icon": null,
+      "imageUrl": "/uploads/projects/gbrpaper.png",
+      "order": 0
+    },
+    {
+      "id": 5,
+      "title": "HerbDry",
+      "description": "Developed HerbDry, an IoT-based herbal leaf drying system that automates and monitors the drying process in real-time. The system integrates temperature, humidity, and weight sensors with a web-based platform, enabling users to remotely monitor the drying process without constant supervision. This project was developed as the final assignment for the Hardware-Software Co-Design course.",
+      "techStack": "IoT, C++, Arduino IDE, Python, MicroPython, Thonny, Wokwi",
+      "githubUrl": null,
+      "demoUrl": null,
+      "createdAt": "2026-04-08T07:14:28.233Z",
+      "icon": null,
+      "imageUrl": "/uploads/projects/herbdry.png",
+      "order": 1
+    },
+    {
+      "id": 7,
+      "title": "Sentiment Analysis on BYOND BSI Application",
+      "description": "Completed a Machine Learning internship at Bank Syariah Indonesia (BSI), focusing on sentiment analysis of user reviews for the BYOND by BSI application. Collected and preprocessed textual data through data cleaning, tokenization, normalization, and feature extraction, then applied TF-IDF and SMOTE to address class imbalance. Developed and evaluated a Support Vector Machine (SVM) model to classify reviews into positive and negative sentiments and analyzed sentiment patterns to gain insights into user perceptions of the application. This experience strengthened my practical skills in Machine Learning, Natural Language Processing (NLP), Python, text classification, and model evaluation.",
+      "techStack": "Python, NLTK, SMOTE, SVM, StopWords",
+      "githubUrl": null,
+      "demoUrl": null,
+      "createdAt": "2026-04-08T07:14:28.233Z",
+      "icon": null,
+      "imageUrl": "/uploads/projects/sentimentfix.png",
+      "order": 1
+    }
+  ],
+  "certificates": [
+    {
+      "id": 19,
+      "title": "Belajar Dasar Artificial Intelligence – Dicoding",
+      "description": "Completed introductory AI training covering artificial intelligence concepts, machine learning fundamentals, deep learning basics, and AI applications.",
+      "credentialUrl": "https://www.dicoding.com/certificates/1RXYW3DEQZVM",
+      "fileUrl": "/uploads/certificates/sertifAI.png",
+      "isPdf": true,
+      "createdAt": "2026-03-30T07:01:19.820Z",
+      "order": 0,
+      "pdfUrl": "/uploads/certificates/sertif belajar dasar AI.pdf"
+    },
+    {
+      "id": 17,
+      "title": "PPK Ormawa - Implementing Team",
+      "description": "Contributed to the development of a tourism application designed to promote local destinations and tourism services. Worked with the team to develop application features that provide accessible information about local tourism and support the digital promotion of destinations and services.",
+      "credentialUrl": "",
+      "fileUrl": "/uploads/certificates/sertifPPK.png",
+      "isPdf": true,
+      "createdAt": "2026-03-30T06:58:08.886Z",
+      "order": 1,
+      "pdfUrl": "/uploads/certificates/sertif PPK.pdf"
+    }
+  ],
+  "settings": {
+    "id": 1,
+    "announcementText": "⚠️ This website is still under maintenance ⚠️",
+    "announcementActive": false,
+    "bannerColor": "#4f46e5",
+    "textColor": "#ffffff",
+    "animationSpeed": 25,
+    "cvUrl": "/uploads/cv/CV Dzaky Dhiya Ul-Haq.pdf",
+    "updatedAt": "2026-05-07T22:45:00.000Z",
+    "visitorCount": 9
+  }
+}
