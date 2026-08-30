@@ -121,6 +121,39 @@
       "createdAt": "2026-03-30T06:58:08.886Z",
       "order": 1,
       "pdfUrl": "/uploads/certificates/sertif PPK.pdf"
+    },
+    {
+      "id": 19,
+      "title": "Memulai Pemrograman dengan Python - Dicoding",
+      "description": "Completed foundational Python programming certification, acquiring industry-standard practices for developing Python applications and gaining proficiency in development tools such as Visual Studio Code, Jupyter Notebook, and Google Colaboratory.",
+      "credentialUrl": "https://www.dicoding.com/certificates/RVZKM1WJEXD5",
+      "fileUrl": "/uploads/certificates/Memulai pemrograman python dicoding.png",
+      "isPdf": true,
+      "createdAt": "2026-08-31T01:56:08.886Z",
+      "order": 1,
+      "pdfUrl": "/uploads/certificates/Memulai pemrograman python dicoding.pdf"
+    },
+    {
+      "id": 19,
+      "title": "Belajar Machine Learning untuk Pemula - Dicoding",
+      "description": "Completed introductory machine learning training covering key concepts of supervised and unsupervised learning, data preprocessing, feature engineering, model selection, evaluation metrics, and practical ML workflow implementations.",
+      "credentialUrl": "https://www.dicoding.com/certificates/72ZDMOO1LZYW",
+      "fileUrl": "/uploads/certificates/MLpemulaDicoding.png",
+      "isPdf": true,
+      "createdAt": "2026-08-31T02:04:08.886Z",
+      "order": 1,
+      "pdfUrl": "/uploads/certificates/MLpemulaDicoding.pdf"
+    },
+    {
+      "id": 19,
+      "title": "Algorithm & Data Structures with Python - Skilvul",
+      "description": "Completed foundational training in Algorithm & Data Structures with Python, covering fundamental algorithm concepts, problem-solving techniques, and essential data structure implementations to build efficient and optimized programs.",
+      "credentialUrl": "https://skilvul.com/courses/algorithm-and-data-structures-with-python/student/cmsysu30h003p01phjk37pjh2/",
+      "fileUrl": "/uploads/certificates/Completion Certificate for Algorithm & Data Structures with Python.png",
+      "isPdf": true,
+      "createdAt": "2026-08-31T02:10:08.886Z",
+      "order": 1,
+      "pdfUrl": "/uploads/certificates/Completion Certificate for Algorithm & Data Structures with Python.pdf"
     }
   ],
   "settings": {
