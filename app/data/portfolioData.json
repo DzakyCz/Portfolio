@@ -123,7 +123,7 @@
       "pdfUrl": "/uploads/certificates/sertif PPK.pdf"
     },
     {
-      "id": 19,
+      "id": 21,
       "title": "Memulai Pemrograman dengan Python - Dicoding",
       "description": "Completed foundational Python programming certification, acquiring industry-standard practices for developing Python applications and gaining proficiency in development tools such as Visual Studio Code, Jupyter Notebook, and Google Colaboratory.",
       "credentialUrl": "https://www.dicoding.com/certificates/RVZKM1WJEXD5",
@@ -134,7 +134,7 @@
       "pdfUrl": "/uploads/certificates/Memulai pemrograman python dicoding.pdf"
     },
     {
-      "id": 19,
+      "id": 22,
       "title": "Belajar Machine Learning untuk Pemula - Dicoding",
       "description": "Completed introductory machine learning training covering key concepts of supervised and unsupervised learning, data preprocessing, feature engineering, model selection, evaluation metrics, and practical ML workflow implementations.",
       "credentialUrl": "https://www.dicoding.com/certificates/72ZDMOO1LZYW",
@@ -145,7 +145,7 @@
       "pdfUrl": "/uploads/certificates/MLpemulaDicoding.pdf"
     },
     {
-      "id": 19,
+      "id": 23,
       "title": "Algorithm & Data Structures with Python - Skilvul",
       "description": "Completed foundational training in Algorithm & Data Structures with Python, covering fundamental algorithm concepts, problem-solving techniques, and essential data structure implementations to build efficient and optimized programs.",
       "credentialUrl": "https://skilvul.com/courses/algorithm-and-data-structures-with-python/student/cmsysu30h003p01phjk37pjh2/",
