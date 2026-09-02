@@ -109,7 +109,7 @@
       "isPdf": true,
       "createdAt": "2026-03-30T07:01:19.820Z",
       "order": 0,
-      "pdfUrl": "/uploads/certificates/sertif belajar dasar AI.pdf"
+      "pdfUrl": "/uploads/certificates/sertifAI.pdf"
     },
     {
       "id": 17,
@@ -120,7 +120,7 @@
       "isPdf": true,
       "createdAt": "2026-03-30T06:58:08.886Z",
       "order": 1,
-      "pdfUrl": "/uploads/certificates/sertif PPK.pdf"
+      "pdfUrl": "/uploads/certificates/sertifPPK.pdf"
     },
     {
       "id": 21,
