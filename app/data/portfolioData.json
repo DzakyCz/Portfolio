@@ -94,7 +94,7 @@
       "title": "Sentiment Analysis on BYOND BSI Application",
       "description": "Completed a Machine Learning internship at Bank Syariah Indonesia (BSI), focusing on sentiment analysis of user reviews for the BYOND by BSI application. Collected and preprocessed textual data through data cleaning, tokenization, normalization, and feature extraction, then applied TF-IDF and SMOTE to address class imbalance. Developed and evaluated a Support Vector Machine (SVM) model to classify reviews into positive and negative sentiments and analyzed sentiment patterns to gain insights into user perceptions of the application. This experience strengthened my practical skills in Machine Learning, Natural Language Processing (NLP), Python, text classification, and model evaluation.",
       "techStack": "Python, NLTK, SMOTE, SVM, StopWords",
-      "githubUrl": null,
+      "githubUrl": "https://github.com/DzakyCz/Sentiment-Analysis-on-BYOND-BSI-Application",
       "demoUrl": null,
       "createdAt": "2026-04-08T07:14:28.233Z",
       "icon": null,
