@@ -68,7 +68,7 @@
       "title": "Data Splitting Strategies for Down Syndrome Facial Classification: A Comparative Study Using EfficientNet-B0 and MobileNetV2",
       "description": "Conducted a comparative study of Down Syndrome facial classification using EfficientNet-B0 and MobileNetV2 across 70:20:10 and 80:10:10 data-splitting strategies with five-fold cross-validation.",
       "techStack": "Python, TensorFlow, Keras, OpenCV, Grad-CAM, Deep Learning",
-      "githubUrl": null,
+      "githubUrl": "https://github.com/DzakyCz/Down-Syndrome-Facial-Classification-Using-EfficientNet-B0-and-MobileNetV2",
       "demoUrl": null,
       "createdAt": "2026-04-08T07:58:43.539Z",
       "icon": null,
