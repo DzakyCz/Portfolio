@@ -61,6 +61,7 @@
       "createdAt": "2026-03-15T09:10:07.403Z"
     }
   ],
+
   "projects": [
     {
       "id": 6,
@@ -71,9 +72,10 @@
       "demoUrl": null,
       "createdAt": "2026-04-08T07:58:43.539Z",
       "icon": null,
-      "imageUrl": "/uploads/projects/gbrpaper.png",
+      "imageUrl": "/uploads/projects/gbrpaper.PNG",
       "order": 0
     },
+
     {
       "id": 5,
       "title": "HerbDry",
@@ -86,6 +88,7 @@
       "imageUrl": "/uploads/projects/herbdry.png",
       "order": 1
     },
+
     {
       "id": 7,
       "title": "Sentiment Analysis on BYOND BSI Application",
@@ -99,6 +102,7 @@
       "order": 1
     }
   ],
+
   "certificates": [
     {
       "id": 19,
@@ -111,6 +115,7 @@
       "order": 0,
       "pdfUrl": "/uploads/certificates/sertifAI.pdf"
     },
+
     {
       "id": 17,
       "title": "PPK Ormawa - Implementing Team",
@@ -144,6 +149,7 @@
       "order": 1,
       "pdfUrl": "/uploads/certificates/MLpemulaDicoding.pdf"
     },
+
     {
       "id": 23,
       "title": "Algorithm & Data Structures with Python - Skilvul",
@@ -156,6 +162,7 @@
       "pdfUrl": "/uploads/certificates/Completion Certificate for Algorithm & Data Structures with Python.pdf"
     }
   ],
+  
   "settings": {
     "id": 1,
     "announcementText": "⚠️ This website is still under maintenance ⚠️",
