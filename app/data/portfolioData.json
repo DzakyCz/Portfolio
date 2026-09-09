@@ -100,6 +100,19 @@
       "icon": null,
       "imageUrl": "/uploads/projects/sentimentfix.png",
       "order": 1
+    },
+
+    {
+      "id": 8,
+      "title": "PAECO",
+      "description": "Developed a digital tourism platform dedicated to promoting local destinations, cultural spots, and community-run services across the Pulo Aceh archipelago. By connecting travelers with island guides, local homestays, and hidden natural attractions, the application helps drive sustainable tourism and empower the local economy.",
+      "techStack": "TypeScript, CSS, JavaScript",
+      "githubUrl": "https://github.com/DzakyCz/PAECO",
+      "demoUrl": null,
+      "createdAt": "2026-09-09T09:18:45.233Z",
+      "icon": null,
+      "imageUrl": "/uploads/projects/paeco.png",
+      "order": 1
     }
   ],
 
