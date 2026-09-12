@@ -244,23 +244,47 @@
         :centered="true"
         :hideLine="true"
       >
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ScrollReveal
-            v-for="(project, i) in projects"
-            :key="project.title"
-            animation="scale"
-            :delay="i * 100"
+        <div class="project-carousel">
+          <button
+            class="project-carousel-button left-0"
+            type="button"
+            aria-label="Previous projects"
+            :disabled="projects.length < 2"
+            @click="scrollProjects(-1)"
           >
-            <ProjectCard
-              :title="project.title"
-              :description="project.description"
-              :tags="project.tags"
-              :image="project.image"
-              :icon="project.icon"
-              :github="project.github"
-              :demo="project.demo"
-            />
-          </ScrollReveal>
+            <Icon name="mdi:chevron-left" class="w-5 h-5" />
+          </button>
+
+          <div ref="projectCarouselRef" class="project-carousel-track">
+            <ScrollReveal
+              v-for="(project, i) in projects"
+              :key="project.title"
+              animation="scale"
+              :delay="i * 100"
+              class="project-carousel-slide"
+            >
+              <ProjectCard
+                :title="project.title"
+                :description="project.description"
+                :tags="project.tags"
+                :image="project.image"
+                :icon="project.icon"
+                :github="project.github"
+                :demo="project.demo"
+                @select="selectedProject = project"
+              />
+            </ScrollReveal>
+          </div>
+
+          <button
+            class="project-carousel-button right-0"
+            type="button"
+            aria-label="Next projects"
+            :disabled="projects.length < 2"
+            @click="scrollProjects(1)"
+          >
+            <Icon name="mdi:chevron-right" class="w-5 h-5" />
+          </button>
         </div>
       </SectionWrapper>
     </section>
@@ -358,30 +382,43 @@
         centered
         hideLine
       >
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <ScrollReveal
-            v-for="(cert, i) in displayedCertificates"
-            :key="cert.title + i"
-            animation="fade-up"
+        <div class="certificate-carousel">
+          <button
+            class="certificate-carousel-button left-0"
+            type="button"
+            aria-label="Previous certificates"
+            :disabled="certificates.length < 2"
+            @click="scrollCertificates(-1)"
           >
-            <CertificateCard
-              :title="cert.title"
-              :description="cert.description"
-              :image="cert.image"
-              :pdf-url="cert.pdfUrl"
-              :credential-url="cert.credentialUrl"
-              @select="selectedCert = cert"
-            />
-          </ScrollReveal>
-        </div>
+            <Icon name="mdi:chevron-left" class="w-5 h-5" />
+          </button>
 
-        <div v-if="certificates.length > 8" class="mt-8 text-center" v-motion :initial="{ opacity: 0 }" :visible-once="{ opacity: 1 }">
-          <button 
-            @click="showAllCertificates = !showAllCertificates"
-            class="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold rounded-full border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/15 hover:border-white/20 transition-all text-gray-400 hover:text-white shadow-xl"
+          <div ref="certificateCarouselRef" class="certificate-carousel-track">
+            <ScrollReveal
+              v-for="(cert, i) in certificates"
+              :key="cert.title + i"
+              animation="fade-up"
+              class="certificate-carousel-slide"
+            >
+              <CertificateCard
+                :title="cert.title"
+                :description="cert.description"
+                :image="cert.image"
+                :pdf-url="cert.pdfUrl"
+                :credential-url="cert.credentialUrl"
+                @select="selectedCert = cert"
+              />
+            </ScrollReveal>
+          </div>
+
+          <button
+            class="certificate-carousel-button right-0"
+            type="button"
+            aria-label="Next certificates"
+            :disabled="certificates.length < 2"
+            @click="scrollCertificates(1)"
           >
-            {{ showAllCertificates ? 'Show Less' : `Show All (${certificates.length})` }}
-            <Icon :name="showAllCertificates ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="w-4 h-4" />
+            <Icon name="mdi:chevron-right" class="w-5 h-5" />
           </button>
         </div>
       </SectionWrapper>
@@ -448,6 +485,8 @@
     </section>
     <!-- Certificate Modal -->
     <CertificateModal :cert="selectedCert" :is-pdf-enabled="isPdfEnabledGlobal" @close="selectedCert = null" />
+    <!-- Project Modal -->
+    <ProjectModal :project="selectedProject" @close="selectedProject = null" />
   </div>
 </template>
 
@@ -505,6 +544,19 @@ const selectedCert = ref<{
   image?: string;
   credentialUrl?: string;
 } | null>(null);
+
+const selectedProject = ref<any | null>(null);
+const projectCarouselRef = ref<HTMLElement | null>(null);
+
+const scrollProjects = (direction: number) => {
+  const carousel = projectCarouselRef.value;
+  if (!carousel) return;
+
+  carousel.scrollBy({
+    left: direction * carousel.clientWidth,
+    behavior: "smooth",
+  });
+};
 
 // ─── Shared data — pre-fetched during loading by SplashScreen ───
 /**
@@ -627,11 +679,17 @@ onMounted(() => {
   fetchSkills();
 });
 
-const showAllCertificates = ref(false);
+const certificateCarouselRef = ref<HTMLElement | null>(null);
 
-const displayedCertificates = computed(() => {
-  return showAllCertificates.value ? certificates.value : certificates.value.slice(0, 8);
-});
+const scrollCertificates = (direction: number) => {
+  const carousel = certificateCarouselRef.value;
+  if (!carousel) return;
+
+  carousel.scrollBy({
+    left: direction * carousel.clientWidth,
+    behavior: "smooth",
+  });
+};
 
 const contactInfo = [
   {
@@ -827,5 +885,133 @@ const contactInfo = [
   background: linear-gradient(120deg, theme('colors.accent.DEFAULT / 15%') 0%, theme('colors.accent.DEFAULT / 5%') 100%);
   padding: 0 4px;
   border-radius: 4px;
+}
+
+/* Project carousel */
+.project-carousel {
+  position: relative;
+  width: 100%;
+}
+.project-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 2.75rem 1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.project-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.project-carousel-slide {
+  flex: 0 0 calc((100% - 3rem) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.project-carousel-button {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: white;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  transform: translateY(-50%);
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+.project-carousel-button:hover:not(:disabled) {
+  background: rgba(124, 58, 237, 0.9);
+  transform: translateY(-50%) scale(1.05);
+}
+.project-carousel-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+@media (max-width: 1023px) {
+  .project-carousel-slide {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+}
+@media (max-width: 639px) {
+  .project-carousel-track {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+  .project-carousel-slide {
+    flex-basis: 100%;
+  }
+}
+
+/* Certificate carousel */
+.certificate-carousel {
+  position: relative;
+  width: 100%;
+}
+.certificate-carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 2.75rem 1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.certificate-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.certificate-carousel-slide {
+  flex: 0 0 calc((100% - 3rem) / 4);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.certificate-carousel-button {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: white;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  transform: translateY(-50%);
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+.certificate-carousel-button:hover:not(:disabled) {
+  background: rgba(124, 58, 237, 0.9);
+  transform: translateY(-50%) scale(1.05);
+}
+.certificate-carousel-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+@media (max-width: 1023px) {
+  .certificate-carousel-slide {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
+}
+@media (max-width: 639px) {
+  .certificate-carousel-track {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+  .certificate-carousel-slide {
+    flex-basis: 100%;
+  }
 }
 </style>

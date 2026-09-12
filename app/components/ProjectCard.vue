@@ -6,6 +6,7 @@
 <template>
   <div
     class="project-card-container flex flex-col h-full group cursor-pointer bg-white dark:bg-[#0D1220]/45 p-0"
+    @click="$emit('select')"
   >
     <!-- Image Area (Thumbnail) -->
     <div class="project-thumb">
@@ -81,6 +82,8 @@ defineProps<{
   github?: string;
   demo?: string;
 }>();
+
+defineEmits<{ select: [] }>();
 </script>
 
 <style scoped>
