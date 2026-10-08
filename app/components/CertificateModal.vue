@@ -161,7 +161,7 @@ onUnmounted(() => {
   width: 6px !important;
 }
 .modal-panel::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(115, 214, 90, 0.35) !important;
   border-radius: 4px !important;
 }
 
@@ -225,9 +225,9 @@ onUnmounted(() => {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #a78bfa;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #73D65A;
+  background: rgba(115, 214, 90, 0.15);
+  border: 1px solid rgba(115, 214, 90, 0.3);
   border-radius: 9999px;
   padding: 0.1rem 0.6rem;
   width: fit-content;
@@ -262,17 +262,17 @@ onUnmounted(() => {
   gap: 0.4rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #a78bfa;
-  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #73D65A;
+  border: 1px solid rgba(115, 214, 90, 0.35);
   border-radius: 0.5rem;
   padding: 0.45rem 0.9rem;
   width: fit-content;
   transition: all 0.2s;
 }
 .modal-cred-link:hover {
-  background: rgba(139, 92, 246, 0.12);
-  border-color: rgba(139, 92, 246, 0.6);
-  color: #c4b5fd;
+  background: rgba(115, 214, 90, 0.12);
+  border-color: rgba(115, 214, 90, 0.6);
+  color: #b8ff8a;
 }
 
 /* ── Transitions ── */

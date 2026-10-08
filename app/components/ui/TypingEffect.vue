@@ -57,7 +57,7 @@ watch(() => props.text, () => {
 }
 .cursor {
   font-weight: 100;
-  color: var(--color-accent, #6366f1);
+  color: var(--color-accent, #7CCB76);
   margin-left: 2px;
   animation: none; /* Handled by JS for more control if needed, but CSS is fine too */
 }

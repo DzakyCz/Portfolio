@@ -2,7 +2,7 @@
   <div v-if="settings?.announcementActive && settings?.announcementText" 
        class="w-full py-2.5 overflow-hidden flex items-center shadow-lg relative z-[100] banner-container"
        :style="{ 
-         backgroundColor: settings.bannerColor || '#4f46e5', 
+         backgroundColor: settings.bannerColor || '#4FAE66', 
          color: settings.textColor || '#ffffff', 
          '--speed': (settings.animationSpeed || 25) + 's' 
        }">

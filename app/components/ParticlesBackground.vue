@@ -19,11 +19,11 @@ interface Particle {
 }
 
 const COLORS = [
-  'rgba(167,139,250,', // violet
-  'rgba(96,165,250,',  // blue
-  'rgba(240,171,252,', // pink-purple
-  'rgba(129,140,248,', // indigo
-  'rgba(196,181,253,', // light violet
+  'rgba(141,235,103,', // lime green
+  'rgba(184,255,138,', // light green
+  'rgba(111,203,76,',  // green
+  'rgba(165,255,176,', // mint green
+  'rgba(126,232,90,',  // bright green
 ];
 
 // Interactive selectors — no particles when hovering these

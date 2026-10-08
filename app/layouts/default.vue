@@ -4,7 +4,7 @@
   with an announcement banner, navbar, main content slot, and footer.
 -->
 <template>
-  <div class="min-h-screen flex flex-col bg-[#080B14]">
+  <div class="min-h-screen flex flex-col bg-[#090d0b]">
     <AnnouncementBanner />
     <Navbar />
     <main class="flex-1">

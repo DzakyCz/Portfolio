@@ -35,7 +35,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  gradientColor: 'rgba(139, 92, 246, 0.18)',
+  gradientColor: 'rgba(115, 214, 90, 0.2)',
   gradientSize: 280,
   showBorder: true,
 });
@@ -75,7 +75,7 @@ const borderStyle = computed(() => {
   const r = props.gradientSize;
   return {
     opacity: '1',
-    background: `radial-gradient(${r}px circle at ${mouseX.value}px ${mouseY.value}px, rgba(236, 72, 153, 0.8), rgba(139, 92, 246, 0.8) 40%, transparent 80%)`,
+    background: `radial-gradient(${r}px circle at ${mouseX.value}px ${mouseY.value}px, rgba(154, 241, 135, 0.9), rgba(87, 182, 62, 0.8) 40%, transparent 80%)`,
   };
 });
 </script>

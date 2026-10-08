@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cert-card-container flex flex-col h-full group cursor-pointer bg-white dark:bg-[#0D1220] p-0"
+    class="cert-card-container flex flex-col h-full group cursor-pointer bg-white dark:bg-[#121814] p-0"
     @click="$emit('select')"
   >
     <!-- Image Area -->
@@ -49,7 +49,7 @@ defineEmits<{ select: [] }>();
 }
 .cert-card-container:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 12px 40px rgba(124, 203, 118, 0.15);
 }
 
 /* ── Thumbnail area ── */
@@ -116,9 +116,9 @@ defineEmits<{ select: [] }>();
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #a78bfa;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #7CCB76;
+  background: rgba(124, 203, 118, 0.12);
+  border: 1px solid rgba(124, 203, 118, 0.28);
   border-radius: 9999px;
   padding: 0.1rem 0.6rem;
   width: fit-content;
@@ -140,7 +140,7 @@ defineEmits<{ select: [] }>();
   color: #fff;
 }
 .cert-card-container:hover .cert-title {
-  color: #c4b5fd;
+  color: #9EDC9C;
 }
 
 .cert-desc {
@@ -163,11 +163,11 @@ defineEmits<{ select: [] }>();
   gap: 0.3rem;
   font-size: 0.75rem; /* text-xs */
   font-weight: 500;
-  color: rgba(139, 92, 246, 0.8);
+  color: rgba(124, 203, 118, 0.85);
   transition: color 0.2s;
   margin-top: 0.25rem;
 }
 .cert-link:hover {
-  color: #a78bfa;
+  color: #9EDC9C;
 }
 </style>

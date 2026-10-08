@@ -4,8 +4,8 @@
     class="fixed z-50 transition-all duration-[1200ms] [transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
     :class="[
       scrolled
-        ? 'mt-2 max-w-4xl rounded-full bg-white/40 dark:[#0D1220]/80 backdrop-blur-xl shadow-2xl px-2'
-        : 'max-w-full rounded-none bg-white/50 dark:bg-[#080B14]/70 backdrop-blur-md px-0'
+        ? 'mt-2 max-w-4xl rounded-full bg-white/40 dark:bg-[#121814]/80 backdrop-blur-xl shadow-2xl px-2'
+        : 'max-w-full rounded-none bg-white/50 dark:bg-[#090d0b]/70 backdrop-blur-md px-0'
     ]"
     :style="{
       top: scrolled
@@ -97,7 +97,7 @@
     >
       <div
         v-if="isOpen"
-        class="md:hidden bg-white/95 dark:bg-[#0D1220]/95 backdrop-blur-md border-b border-white/[0.08]"
+        class="md:hidden bg-white/95 dark:bg-[#121814]/95 backdrop-blur-md border-b border-white/[0.08]"
       >
         <div class="px-4 py-3 space-y-1">
           <a

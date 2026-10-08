@@ -25,7 +25,7 @@
             <!-- Headline: Stacked & Strong -->
             <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9] flex flex-col">
               <span class="text-slate-900 dark:text-white">Dzaky Dhiya</span>
-              <span class="bg-gradient-to-r from-accent to-violet-light bg-clip-text text-transparent">Ul-Haq</span>
+              <span class="bg-gradient-to-r from-accent-light via-accent to-accent-dark bg-clip-text text-transparent">Ul-Haq</span>
             </h1>
 
             <!-- Separator -->
@@ -59,8 +59,8 @@
           <div class="relative w-full max-w-xs group">
             <!-- Floating animation wrapper -->
             <div class="animate-float-slow will-change-transform">
-              <!-- Glow background effect - violet/purple on hover -->
-              <div class="absolute -inset-4 bg-gradient-to-br from-violet/20 to-violet-light/10 blur-3xl rounded-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" />
+              <!-- Glow background effect - green accent on hover -->
+              <div class="absolute -inset-4 bg-gradient-to-br from-accent/20 to-accent-light/10 blur-3xl rounded-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" />
               
               <div class="relative z-10">
                 <!-- Profile Card Container -->
@@ -79,9 +79,9 @@
                       <!-- Top half - transparent -->
                       <div class="absolute top-0 left-0 right-0 h-1/2 bg-transparent" />
                       
-                      <!-- Bottom half dark gradient + violet glow on hover -->
+                      <!-- Bottom half dark gradient + green glow on hover -->
                       <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-violet/0 via-transparent to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none" />
+                      <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-accent/0 via-transparent to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none" />
                     </div>
                   </div>
                 </div>
@@ -113,7 +113,7 @@
 
           <!-- ── Row 1: Profile (Left) & Bio (Right) ── -->
           <ScrollReveal animation="fade-up" :delay="0" class="lg:col-span-1 lg:self-stretch">
-            <div class="group h-full relative overflow-hidden rounded-2xl border border-white/5 bg-[#0D1220]/80 backdrop-blur-sm transition-all duration-300 hover:border-accent/20 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]">
+            <div class="group h-full relative overflow-hidden rounded-2xl border border-white/5 bg-[#121814]/80 backdrop-blur-sm transition-all duration-300 hover:border-accent/20 hover:shadow-[0_0_30px_rgba(124,203,118,0.12)]">
               <!-- Portrait Photo Only with Home Page Effects & Darkened Tone -->
               <div class="relative h-full min-h-[400px] w-full overflow-hidden">
                 <img
@@ -137,7 +137,7 @@
           <div class="lg:col-span-2 flex flex-col justify-start">
             <!-- Main Bio & Tags -->
             <ScrollReveal animation="fade-up" :delay="150" class="h-full">
-              <div class="glass-card !bg-[#0D1220] h-full p-5 sm:p-7 transition-all duration-300 hover:border-white/10 relative overflow-hidden group flex flex-col justify-center">
+              <div class="glass-card !bg-[#121814] h-full p-5 sm:p-7 transition-all duration-300 hover:border-white/10 relative overflow-hidden group flex flex-col justify-center">
                 <!-- Optional background glow -->
                 <div class="absolute -top-32 -right-32 w-64 h-64 bg-accent/10 rounded-full blur-[60px] group-hover:bg-accent/20 transition-colors duration-700 pointer-events-none"></div>
 
@@ -326,7 +326,7 @@
                 <div class="absolute left-[7rem] -translate-x-1/2 z-10 flex">
                   <div
                     class="w-4 h-4 rounded-full bg-white/90 dark:bg-dark/90 border border-accent/40 flex items-center justify-center experience-dot transition-all duration-400"
-                    :class="{ 'border-accent shadow-[0_0_8px_rgba(124,58,237,0.5)]': activeDots.includes(index) }"
+                    :class="{ 'border-accent shadow-[0_0_8px_rgba(115,214,90,0.5)]': activeDots.includes(index) }"
                   >
                     <div
                       class="w-[55%] h-[55%] rounded-full bg-gradient-to-tr from-accent to-accent-light"
@@ -338,7 +338,7 @@
 
                 <!-- Content row via MagicCard -->
                 <div class="flex-1">
-                  <MagicCard :showBorder="false" class="!bg-[#0D1220] border border-transparent hover:border-accent/15 hover:bg-[#111A2D] transition-all duration-300">
+                  <MagicCard :showBorder="false" class="!bg-[#121814] border border-transparent hover:border-accent/15 hover:bg-[#18231b] transition-all duration-300">
                     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 pl-6 py-2 rounded-xl">
                       <!-- Logo -->
                       <div class="shrink-0 w-8 h-8 flex items-center justify-center">
@@ -473,7 +473,7 @@
                 <h3 class="text-base font-semibold text-white mb-1">Send a Message</h3>
                 <p class="text-gray-500 text-xs">Reach out directly via the form below.</p>
               </div>
-              <div class="border border-white/[0.08] rounded-xl p-[1px] text-left bg-[#0D1220]">
+              <div class="border border-white/[0.08] rounded-xl p-[1px] text-left bg-[#121814]">
                 <div class="bg-transparent p-4 sm:p-5">
                   <ContactForm />
                 </div>
@@ -621,7 +621,7 @@ const fetchSkills = async () => {
             case 'backend': bgClass = "bg-emerald-500/10"; iconClass = "text-emerald-400"; break;
             case 'design': bgClass = "bg-pink-500/10"; iconClass = "text-pink-400"; break;
             case 'tools': bgClass = "bg-accent/10"; iconClass = "text-accent-light"; break;
-            case 'ml': bgClass = "bg-violet-500/10"; iconClass = "text-violet-400"; break;
+            case 'ml': bgClass = "bg-accent/10"; iconClass = "text-accent-light"; break;
             case 'embedded': bgClass = "bg-amber-500/10"; iconClass = "text-amber-400"; break;
         }
 
@@ -765,8 +765,8 @@ const contactInfo = [
   border-radius: 99px;
   background: rgba(15, 15, 25, 0.7);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  color: #a78bfa;
+  border: 1px solid rgba(115, 214, 90, 0.32);
+  color: #9AF187;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -784,7 +784,7 @@ const contactInfo = [
 .meta-icon {
   width: 13px;
   height: 13px;
-  color: #a78bfa;
+  color: #9AF187;
   flex-shrink: 0;
 }
 
@@ -809,7 +809,7 @@ const contactInfo = [
 .hero-grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(115, 214, 90, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
   pointer-events: none;
@@ -824,7 +824,7 @@ const contactInfo = [
 }
 .hero-orb-1 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(115, 214, 90, 0.15) 0%, transparent 70%);
   top: -8%; left: -6%;
   animation-delay: 0s;
 }
@@ -845,15 +845,15 @@ const contactInfo = [
   gap: 8px;
   padding: 6px 14px;
   border-radius: 99px;
-  background: rgba(139, 92, 246, 0.08);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(115, 214, 90, 0.08);
+  border: 1px solid rgba(115, 214, 90, 0.2);
   animation: fadeSlideDown 0.6s ease both;
 }
 .badge-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: #7c3aed;
-  box-shadow: 0 0 8px 2px rgba(124,58,237,0.6);
+  background: #4FAE66;
+  box-shadow: 0 0 8px 2px rgba(115,214,90,0.6);
   animation: pulse-badge 2s ease-in-out infinite;
 }
 @keyframes pulse-badge {
@@ -928,7 +928,7 @@ const contactInfo = [
   transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 .project-carousel-button:hover:not(:disabled) {
-  background: rgba(124, 58, 237, 0.9);
+  background: rgba(79, 174, 102, 0.9);
   transform: translateY(-50%) scale(1.05);
 }
 .project-carousel-button:disabled {
@@ -992,7 +992,7 @@ const contactInfo = [
   transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 .certificate-carousel-button:hover:not(:disabled) {
-  background: rgba(124, 58, 237, 0.9);
+  background: rgba(79, 174, 102, 0.9);
   transform: translateY(-50%) scale(1.05);
 }
 .certificate-carousel-button:disabled {

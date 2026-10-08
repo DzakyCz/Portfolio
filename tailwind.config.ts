@@ -26,14 +26,14 @@ export default {
           border: 'rgb(var(--color-border) / <alpha-value>)',
         },
         accent: {
-          DEFAULT: '#6366f1', // Indigo-500
-          light: '#818cf8',  // Indigo-400
-          dark: '#4f46e5',   // Indigo-600
-          glow: 'rgba(99,102,241,0.15)',
+          DEFAULT: '#8DEB67',
+          light: '#B8FF8A',
+          dark: '#73D65A',
+          glow: 'rgba(141, 235, 103, 0.18)',
         },
         violet: {
-          DEFAULT: '#8b5cf6', // Violet-500
-          light: '#a78bfa',  // Violet-400
+          DEFAULT: '#8DEB67',
+          light: '#B8FF8A',
         },
       },
       // Custom animations for smooth UI transitions and interactive effects
@@ -70,12 +70,12 @@ export default {
           '50%': { transform: 'translateY(-8px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(99,102,241,0.2)' },
-          '100%': { boxShadow: '0 0 20px rgba(99,102,241,0.4)' },
+          '0%': { boxShadow: '0 0 5px rgba(115,214,90,0.2)' },
+          '100%': { boxShadow: '0 0 20px rgba(115,214,90,0.4)' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(99,102,241,0.4), 0 0 60px rgba(99,102,241,0.2)' },
-          '50%': { boxShadow: '0 0 30px rgba(99,102,241,0.6), 0 0 80px rgba(99,102,241,0.3)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(115,214,90,0.4), 0 0 60px rgba(115,214,90,0.2)' },
+          '50%': { boxShadow: '0 0 30px rgba(115,214,90,0.6), 0 0 80px rgba(115,214,90,0.3)' },
         },
         marqueeLtr: {
           '0%': { transform: 'translateX(-100%)' },

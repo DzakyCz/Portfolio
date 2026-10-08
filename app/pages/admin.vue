@@ -779,7 +779,7 @@
                   </label>
                   <div class="flex items-center gap-3">
                     <input type="color" v-model="siteSetting.bannerColor" class="h-10 w-14 p-1 rounded cursor-pointer border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-card shadow-sm">
-                    <input type="text" v-model="siteSetting.bannerColor" class="input-field font-mono text-sm max-w-[120px] bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-gray-700" placeholder="#4f46e5">
+                    <input type="text" v-model="siteSetting.bannerColor" class="input-field font-mono text-sm max-w-[120px] bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-gray-700" placeholder="#2d9d57">
                   </div>
                 </div>
 
@@ -1048,7 +1048,7 @@
                     type="checkbox"
                     id="currentJob"
                     v-model="form2.currentJob"
-                    class="rounded border-gray-600 bg-gray-800 text-accent focus:ring-accent accent-purple-500"
+                    class="rounded border-gray-600 bg-gray-800 text-accent focus:ring-accent accent-emerald-500"
                     @change="form2.currentJob ? form2.endDate = '' : null"
                   />
                   <label for="currentJob" class="text-sm text-gray-300 cursor-pointer">I currently work here</label>
@@ -1368,7 +1368,7 @@ const siteSetting = ref({
   announcementText: "", 
   announcementActive: false,
   enablePdfView: false,
-  bannerColor: "#4f46e5",
+  bannerColor: "#2d9d57",
   textColor: "#ffffff",
   animationSpeed: 25,
   cvUrl: "",
@@ -1447,8 +1447,8 @@ const stats = computed(() => [
     count: projects.value.length,
     icon: "mdi:folder-multiple-outline",
     tab: "projects" as TabName,
-    bg: "rgba(99,102,241,0.12)",
-    color: "#818cf8",
+    bg: "rgba(115,214,90,0.12)",
+    color: "#B8FF8A",
   },
   {
     label: "Experiences",
@@ -2008,7 +2008,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
   width: 560px;
   height: 560px;
   margin: -280px 0 0 -280px;
-  background: radial-gradient(circle, #7c3aed, #4f46e5);
+  background: radial-gradient(circle, #73D65A, #2d9d57);
   animation: orbit1 18s linear infinite;
 }
 .blob-2 {
@@ -2224,9 +2224,9 @@ const handleProjectImageDrop = (e: DragEvent) => {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .sidebar-toggle-btn:hover {
-  background: rgba(139, 92, 246, 0.1);
-  color: #a78bfa;
-  border-color: rgba(139, 92, 246, 0.2);
+  background: rgba(115, 214, 90, 0.1);
+  color: #B8FF8A;
+  border-color: rgba(115, 214, 90, 0.2);
 }
 
 .sidebar-nav {
@@ -2282,7 +2282,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
   top: 25%;
   bottom: 25%;
   width: 3px;
-  background: #a78bfa;
+  background: #B8FF8A;
   border-radius: 0 4px 4px 0;
   opacity: 0;
   transform: scaleY(0);
@@ -2290,17 +2290,17 @@ const handleProjectImageDrop = (e: DragEvent) => {
 }
 
 .nav-item--active {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(115, 214, 90, 0.1);
   color: #fff;
-  border-color: rgba(139, 92, 246, 0.15);
-  box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.05);
+  border-color: rgba(115, 214, 90, 0.15);
+  box-shadow: inset 0 0 15px rgba(115, 214, 90, 0.05);
 }
 .nav-item--active .active-indicator {
   opacity: 1;
   transform: scaleY(1);
 }
 .nav-item--active .nav-icon {
-  color: #a78bfa;
+  color: #B8FF8A;
   transform: scale(1.1);
 }
 
@@ -2479,7 +2479,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .stat-card:hover {
-  border-color: rgba(139, 92, 246, 0.6);
+  border-color: rgba(115, 214, 90, 0.6);
   transform: translateY(-2px);
   background: rgba(15, 12, 45, 0.98);
   box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3);
@@ -2593,9 +2593,9 @@ const handleProjectImageDrop = (e: DragEvent) => {
   font-size: 0.65rem;
   padding: 0.15rem 0.5rem;
   border-radius: 0.5rem;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  color: #a78bfa;
+  background: rgba(115, 214, 90, 0.1);
+  border: 1px solid rgba(115, 214, 90, 0.2);
+  color: #B8FF8A;
   font-family: monospace;
 }
 .link-chip {
@@ -2611,9 +2611,9 @@ const handleProjectImageDrop = (e: DragEvent) => {
   transition: all 0.2s;
 }
 .link-chip:hover {
-  background: rgba(139, 92, 246, 0.15);
-  color: #a78bfa;
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(115, 214, 90, 0.15);
+  color: #B8FF8A;
+  border-color: rgba(115, 214, 90, 0.3);
 }
 
 /* ── Icon buttons ── */
@@ -2648,17 +2648,17 @@ const handleProjectImageDrop = (e: DragEvent) => {
   padding: 0.55rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  background: linear-gradient(135deg, #73D65A, #2d9d57);
   border-radius: 0.5rem;
   color: #fff;
   white-space: nowrap;
   transition: all 0.25s;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25);
+  box-shadow: 0 4px 15px rgba(115, 214, 90, 0.25);
   flex-shrink: 0;
 }
 .add-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 6px 20px rgba(115, 214, 90, 0.35);
 }
 
 /* ── Certificate grid ── */
@@ -2678,7 +2678,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
   transition: all 0.2s;
 }
 .cert-card:hover {
-  border-color: rgba(139, 92, 246, 0.25);
+  border-color: rgba(115, 214, 90, 0.25);
   background: rgba(15, 12, 45, 0.98);
 }
 .cert-thumb {
@@ -2809,8 +2809,8 @@ const handleProjectImageDrop = (e: DragEvent) => {
 }
 .upload-zone:hover,
 .upload-zone--active {
-  border-color: rgba(139, 92, 246, 0.5);
-  background: rgba(139, 92, 246, 0.05);
+  border-color: rgba(115, 214, 90, 0.5);
+  background: rgba(115, 214, 90, 0.05);
 }
 .upload-empty {
   display: flex;
@@ -2879,8 +2879,8 @@ const handleProjectImageDrop = (e: DragEvent) => {
   color: rgba(255, 255, 255, 0.45);
 }
 .glass-input:focus {
-  border-color: rgba(139, 92, 246, 0.7);
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+  border-color: rgba(115, 214, 90, 0.7);
+  box-shadow: 0 0 0 4px rgba(115, 214, 90, 0.15);
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -2907,7 +2907,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
 .logo-text {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #a78bfa, #60a5fa, #f0abfc);
+  background: linear-gradient(135deg, #B8FF8A, #60a5fa, #f0abfc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2933,7 +2933,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
 
 .submit-btn {
   padding: 0.6rem 1.25rem;
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  background: linear-gradient(135deg, #73D65A, #2d9d57);
   border-radius: 0.5rem;
   color: #fff;
   font-size: 0.85rem;
@@ -2945,7 +2945,7 @@ const handleProjectImageDrop = (e: DragEvent) => {
   cursor: pointer;
 }
 .submit-btn:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 6px 20px rgba(115, 214, 90, 0.35);
 }
 .submit-btn:disabled {
   opacity: 0.55;

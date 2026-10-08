@@ -176,11 +176,11 @@ onUnmounted(() => {
 }
 .project-modal-tag {
   padding: 0.25rem 0.6rem;
-  color: #c4b5fd;
+  color: #b7f5a1;
   font-size: 0.7rem;
   font-weight: 600;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(115, 214, 90, 0.15);
+  border: 1px solid rgba(115, 214, 90, 0.3);
   border-radius: 9999px;
 }
 .project-modal-section-label {
@@ -207,24 +207,24 @@ onUnmounted(() => {
   align-items: center;
   gap: 0.4rem;
   padding: 0.55rem 0.9rem;
-  color: #c4b5fd;
+  color: #b7f5a1;
   font-size: 0.85rem;
   font-weight: 600;
-  border: 1px solid rgba(139, 92, 246, 0.35);
+  border: 1px solid rgba(115, 214, 90, 0.35);
   border-radius: 0.5rem;
   transition: all 0.2s;
 }
 .project-modal-link:hover {
-  background: rgba(139, 92, 246, 0.12);
-  border-color: rgba(139, 92, 246, 0.6);
+  background: rgba(115, 214, 90, 0.12);
+  border-color: rgba(115, 214, 90, 0.6);
 }
 .project-modal-link-primary {
   color: white;
-  background: rgba(139, 92, 246, 0.75);
+  background: rgba(115, 214, 90, 0.75);
   border-color: transparent;
 }
 .project-modal-link-primary:hover {
-  background: rgba(124, 58, 237, 0.95);
+  background: rgba(87, 182, 62, 0.95);
 }
 .project-modal-enter-active,
 .project-modal-leave-active { transition: opacity 0.25s ease; }

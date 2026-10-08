@@ -5,7 +5,7 @@
 -->
 <template>
   <div
-    class="project-card-container flex flex-col h-full group cursor-pointer bg-white dark:bg-[#0D1220]/45 p-0"
+    class="project-card-container flex flex-col h-full group cursor-pointer bg-white dark:bg-[#121814]/45 p-0"
     @click="$emit('select')"
   >
     <!-- Image Area (Thumbnail) -->
@@ -96,7 +96,7 @@ defineEmits<{ select: [] }>();
 }
 .project-card-container:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 12px 40px rgba(124, 203, 118, 0.15);
 }
 
 /* ── Thumbnail area ── */
@@ -161,9 +161,9 @@ defineEmits<{ select: [] }>();
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #94a3b8; /* Muted slate grey */
-  background: rgba(255, 255, 255, 0.03); /* Very subtle transparency */
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #9EDC9C; /* green tint */
+  background: rgba(124, 203, 118, 0.08); /* subtle green transparency */
+  border: 1px solid rgba(124, 203, 118, 0.22);
   border-radius: 9999px;
   padding: 0.1rem 0.6rem;
   width: fit-content;
@@ -183,7 +183,7 @@ defineEmits<{ select: [] }>();
   color: #fff;
 }
 .project-card-container:hover .project-title {
-  color: #c4b5fd;
+  color: #9EDC9C;
 }
 
 .project-desc {

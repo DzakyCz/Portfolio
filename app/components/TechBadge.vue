@@ -17,7 +17,7 @@ const props = defineProps<{
 const variantMap: Record<string, string> = {
   default: "bg-dark-lighter border-dark-border text-gray-300",
   accent: "bg-accent/10 border-accent/30 text-accent-light",
-  violet: "bg-violet/10 border-violet/30 text-violet-light",
+  violet: "bg-accent/10 border-accent/30 text-accent-light",
   emerald: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
   amber: "bg-amber-500/10 border-amber-500/30 text-amber-400",
   sky: "bg-sky-500/10 border-sky-500/30 text-sky-400",
