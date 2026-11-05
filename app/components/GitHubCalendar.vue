@@ -1,7 +1,7 @@
 <template>
   <div class="github-calendar-container font-sans flex flex-col items-center relative w-full px-0">
     <!-- Centered Card Wrapper -->
-    <div class="w-fit mx-auto flex flex-col bg-transparent relative">
+    <div class="w-full min-w-0 max-w-full lg:max-w-[640px] mx-auto flex flex-col bg-transparent relative">
       <!-- Header: Avatar, Username, and View Profile Link -->
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-3">
@@ -29,9 +29,9 @@
       </div>
 
       <!-- Calendar Grid Area -->
-      <div class="flex gap-2 justify-center">
+      <div class="flex gap-2 justify-center min-w-0 w-full">
         <!-- Day Labels (Left) -->
-        <div class="flex flex-col gap-[2px] pt-[25px] w-6 shrink-0">
+        <div class="hidden sm:flex flex-col gap-[2px] pt-[25px] w-6 shrink-0">
           <span class="text-[9px] text-[#8B949E] h-[11px] leading-[11px]"></span>
           <span class="text-[9px] text-[#8B949E] h-[11px] leading-[11px]">Mon</span>
           <span class="text-[9px] text-[#8B949E] h-[11px] leading-[11px]"></span>
@@ -42,31 +42,31 @@
         </div>
 
         <!-- Grid + Month Labels -->
-        <div class="overflow-x-auto scrollbar-hide pb-2">
-          <div class="flex flex-col gap-1 w-max">
+        <div class="pb-2 min-w-0 flex-1">
+          <div class="flex flex-col gap-1 w-full min-w-0">
             <!-- Month Labels Row -->
-            <div class="h-[15px] relative">
+            <div class="h-[15px] relative overflow-hidden">
               <div 
                 v-for="(month, index) in monthLabels" 
                 :key="index"
                 class="absolute text-[9px] text-[#8B949E] whitespace-nowrap"
-                :style="{ left: `${month.offset * 13}px` }"
+                :style="{ left: `${(month.offset / weeks.length) * 100}%` }"
               >
                 {{ month.name }}
               </div>
             </div>
 
             <!-- Contribution Grid -->
-            <div class="flex gap-[2px]">
+            <div class="flex gap-[1px] sm:gap-[2px] w-full min-w-0">
               <div 
                 v-for="(week, weekIndex) in weeks" 
                 :key="weekIndex"
-                class="flex flex-col gap-[2px]"
+                class="flex flex-col gap-[1px] sm:gap-[2px] flex-1 min-w-0 max-w-[11px]"
               >
                 <div 
                   v-for="(day, dayIndex) in week" 
                   :key="dayIndex"
-                  class="w-[11px] h-[11px] rounded-[2px] transition-colors duration-200 cursor-pointer relative"
+                  class="w-full aspect-square rounded-[2px] transition-colors duration-200 cursor-pointer relative"
                   :style="{ backgroundColor: getColor(day.count) }"
                   @mouseenter="showTooltip($event, day)"
                   @mouseleave="hideTooltip"
@@ -76,7 +76,7 @@
             </div>
 
             <!-- Footer: Stats and Legend (Inside w-max grid container to match width) -->
-            <div class="flex items-center justify-between mt-3 text-[11px] text-[#8B949E] w-full">
+            <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mt-3 text-[11px] text-[#8B949E] w-full">
               <div class="text-left">
                 {{ totalContributions }} contributions in the last 10 months
               </div>
@@ -210,7 +210,7 @@ const monthLabels = computed(() => {
     if (month !== lastMonth) {
       const lastLabel = labels[labels.length - 1]
       // Ensure there's enough space (3 weeks) between labels to avoid overlap
-      if (!lastLabel || index - lastLabel.offset > 3) {
+      if ((!lastLabel || index - lastLabel.offset > 3) && weeks.value.length - index > 2) {
         labels.push({
           name: monthNames[month] || '',
           offset: index // The week index used for positioning

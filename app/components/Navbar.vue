@@ -1,14 +1,16 @@
 <template>
   <!-- Dynamic classes for sticky/floating navbar transition based on scroll position -->
   <nav
-    class="fixed z-50 transition-all duration-[1200ms] [transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
+    class="fixed z-50 overflow-hidden transition-all duration-[1200ms] [transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
     :class="[
-      scrolled
-        ? 'mt-2 max-w-4xl rounded-full bg-white/40 dark:bg-[#121814]/80 backdrop-blur-xl shadow-2xl px-2'
-        : 'max-w-full rounded-none bg-white/50 dark:bg-[#090d0b]/70 backdrop-blur-md px-0'
+      isOpen
+        ? 'mt-0 max-w-full rounded-none bg-white/95 dark:bg-[#121814]/95 backdrop-blur-xl shadow-2xl px-0'
+        : scrolled
+          ? 'mt-2 max-w-4xl rounded-full bg-white/40 dark:bg-[#121814]/80 backdrop-blur-xl shadow-2xl px-2'
+          : 'max-w-full rounded-none bg-white/50 dark:bg-[#090d0b]/70 backdrop-blur-md px-0'
     ]"
     :style="{
-      top: scrolled
+      top: (scrolled || isOpen)
         ? '0px'
         : (isBannerVisible ? '40px' : '0px'),
       left: '0px',
@@ -97,9 +99,9 @@
     >
       <div
         v-if="isOpen"
-        class="md:hidden bg-white/95 dark:bg-[#121814]/95 backdrop-blur-md border-b border-white/[0.08]"
+        class="md:hidden max-h-[calc(100svh-4rem)] overflow-y-auto overscroll-contain bg-white/95 dark:bg-[#121814]/95 backdrop-blur-md border-b border-white/[0.08]"
       >
-        <div class="px-4 py-3 space-y-1">
+        <div class="px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] space-y-1">
           <a
             v-for="link in navLinks"
             :key="link.id"
@@ -154,6 +156,16 @@ onMounted(() => {
     scrolled.value = window.scrollY > 50
   }
 
+  // The toggle button is hidden from md up, so an open menu would otherwise
+  // stay stuck open (and strip the desktop pill styling) after a resize.
+  const handleResize = () => {
+    if (window.innerWidth >= 768) isOpen.value = false
+  }
+
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') isOpen.value = false
+  }
+
   const sectionIds = navLinks.map((item) => item.id)
 
   const observers: IntersectionObserver[] = []
@@ -191,11 +203,17 @@ onMounted(() => {
     { passive: true }
   )
 
+  window.addEventListener('resize', handleResize, { passive: true })
+  window.addEventListener('keydown', handleKeydown)
+
   onUnmounted(() => {
     window.removeEventListener(
       'scroll',
       handleScroll
     )
+
+    window.removeEventListener('resize', handleResize)
+    window.removeEventListener('keydown', handleKeydown)
 
     observers.forEach((observer) =>
       observer.disconnect()

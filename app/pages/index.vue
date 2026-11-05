@@ -7,7 +7,7 @@
   <div>
     <!-- Portfolio Main Sections: Hero, About, Tech Stack, Projects, Experience, Certifications, Contact -->
     <!-- ==================== HERO ==================== -->
-    <section id="hero" class="relative min-h-[100vh] flex items-center justify-center pt-0 overflow-hidden bg-[#f8fafc] dark:bg-[#080B14]">
+    <section id="hero" class="relative min-h-[100svh] flex items-center justify-center pt-28 pb-16 sm:pt-32 lg:pt-0 lg:pb-0 overflow-hidden bg-[#f8fafc] dark:bg-[#080B14]">
       
       <!-- Subtle Grid -->
       <div class="hero-grid opacity-[0.2] dark:opacity-[0.3]" />
@@ -16,14 +16,14 @@
       <div class="hero-orb hero-orb-1 opacity-60" />
       <div class="hero-orb hero-orb-2 opacity-40" />
       
-      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full mt-[1rem] md:mt-[-1rem]">
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-0 lg:py-8 w-full mt-0 lg:mt-[-1rem]">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
           
           <!-- Left side: Content (Split layout restored) -->
           <div class="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">
             
             <!-- Headline: Stacked & Strong -->
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9] flex flex-col">
+            <h1 class="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[1.05] md:leading-[0.9] pb-1 flex flex-col">
               <span class="text-slate-900 dark:text-white">Dzaky Dhiya</span>
               <span class="bg-gradient-to-r from-accent-light via-accent to-accent-dark bg-clip-text text-transparent">Ul-Haq</span>
             </h1>
@@ -109,7 +109,7 @@
         :centered="true"
         :hideLine="true"
       >
-        <div class="grid lg:grid-cols-3 gap-6 relative z-10">
+        <div class="grid lg:grid-cols-3 gap-6 relative z-10 min-w-0 [&>*]:min-w-0">
 
           <!-- ── Row 1: Profile (Left) & Bio (Right) ── -->
           <ScrollReveal animation="fade-up" :delay="0" class="lg:col-span-1 lg:self-stretch">
@@ -164,7 +164,7 @@
           </div>
 
           <!-- ── Row 2: GitHub Calendar (Left) & Socials (Right) ── -->
-          <ScrollReveal animation="fade-up" :delay="200" class="lg:col-span-2 flex items-center justify-start w-full relative z-20">
+          <ScrollReveal animation="fade-up" :delay="200" class="lg:col-span-2 flex items-center justify-start w-full min-w-0 max-w-full overflow-hidden relative z-20">
             <GitHubCalendar 
               username="DzakyCz" 
               avatar-url="https://github.com/DzakyCz.png"
@@ -300,11 +300,11 @@
       >
         <div class="relative" ref="experienceSectionRef">
           <!-- Background vertical line -->
-          <div class="absolute left-28 top-0 bottom-0 w-px bg-gray-200 dark:bg-white/5" />
+          <div class="absolute left-[4.5rem] sm:left-28 top-0 bottom-0 w-px bg-gray-200 dark:bg-white/5" />
           <!-- Animated progress line -->
           <div
             ref="progressLineRef"
-            class="absolute left-28 top-0 w-px bg-accent/60 origin-top transition-[height] duration-100 ease-linear"
+            class="absolute left-[4.5rem] sm:left-28 top-0 w-px bg-accent/60 origin-top transition-[height] duration-100 ease-linear"
             :style="{ height: `${experienceProgress * 100}%` }"
           />
 
@@ -315,15 +315,15 @@
               animation="fade-up"
               :delay="index * 60"
             >
-              <div class="relative flex items-center gap-3 group">
+              <div class="relative flex items-center gap-2 sm:gap-3 group">
                 <!-- Date label (left side) -->
-                <div class="w-28 shrink-0 text-right pr-3">
-                  <span class="text-xs text-gray-500 dark:text-gray-400 font-semibold leading-tight block">{{ (exp.period.split(' · ')[0] ?? '').split(' - ')[0] ?? '' }}</span>
-                  <span class="text-[11px] text-gray-400 dark:text-gray-600 font-mono mt-0.5 inline-block">{{ (exp.period.split(' · ')[0] ?? '').split(' - ')[1] ?? '' }}</span>
+                <div class="w-[4.5rem] sm:w-28 shrink-0 text-right pr-2 sm:pr-3">
+                  <span class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 font-semibold leading-tight block">{{ (exp.period.split(' · ')[0] ?? '').split(' - ')[0] ?? '' }}</span>
+                  <span class="text-[10px] sm:text-[11px] text-gray-400 dark:text-gray-600 font-mono mt-0.5 inline-block">{{ (exp.period.split(' · ')[0] ?? '').split(' - ')[1] ?? '' }}</span>
                 </div>
 
                 <!-- Animated dot on timeline -->
-                <div class="absolute left-[7rem] -translate-x-1/2 z-10 flex">
+                <div class="absolute left-[4.5rem] sm:left-[7rem] -translate-x-1/2 z-10 flex">
                   <div
                     class="w-4 h-4 rounded-full bg-white/90 dark:bg-dark/90 border border-accent/40 flex items-center justify-center experience-dot transition-all duration-400"
                     :class="{ 'border-accent shadow-[0_0_8px_rgba(115,214,90,0.5)]': activeDots.includes(index) }"
@@ -339,9 +339,9 @@
                 <!-- Content row via MagicCard -->
                 <div class="flex-1">
                   <MagicCard :showBorder="false" class="!bg-[#121814] border border-transparent hover:border-accent/15 hover:bg-[#18231b] transition-all duration-300">
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 pl-6 py-2 rounded-xl">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 pl-3 pr-3 sm:pr-0 sm:pl-6 py-2 rounded-xl">
                       <!-- Logo -->
-                      <div class="shrink-0 w-8 h-8 flex items-center justify-center">
+                      <div class="shrink-0 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center">
                         <img
                           v-if="exp.logo"
                           :src="exp.logo"
@@ -354,8 +354,8 @@
                       <!-- Text -->
                       <div class="flex-1 min-w-0">
                         <div class="flex flex-col gap-0.5">
-                          <span class="font-bold text-gray-900 dark:text-white text-base leading-tight">{{ exp.role }}</span>
-                          <span class="text-accent-dark/80 dark:text-accent-light/70 text-sm font-medium mt-0.5">
+                          <span class="font-bold text-gray-900 dark:text-white text-sm sm:text-base leading-tight">{{ exp.role }}</span>
+                          <span class="text-accent-dark/80 dark:text-accent-light/70 text-[13px] sm:text-sm font-medium mt-0.5">
                             {{ exp.company }}<template v-if="exp.position"> &middot; {{ exp.position }}</template>
                           </span>
                         </div>
@@ -943,8 +943,8 @@ const contactInfo = [
 }
 @media (max-width: 639px) {
   .project-carousel-track {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
   }
   .project-carousel-slide {
     flex-basis: 100%;
@@ -1007,8 +1007,8 @@ const contactInfo = [
 }
 @media (max-width: 639px) {
   .certificate-carousel-track {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
   }
   .certificate-carousel-slide {
     flex-basis: 100%;

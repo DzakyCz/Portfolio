@@ -7,7 +7,7 @@
   <div class="min-h-screen flex flex-col bg-[#090d0b]">
     <AnnouncementBanner />
     <Navbar />
-    <main class="flex-1">
+    <main class="flex-1 overflow-x-clip">
       <slot />
     </main>
     <Footer />
