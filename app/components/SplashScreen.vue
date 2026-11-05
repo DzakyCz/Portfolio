@@ -34,6 +34,22 @@ const messages = [
 ];
 const currentMessage = ref(messages[0]);
 let messageInterval: any = null;
+let lottieAnim: any = null;
+
+/**
+ * Tear down the Lottie animation.
+ *
+ * This component is never unmounted (only the overlay inside it is removed by
+ * v-if), so without an explicit teardown the animation keeps its
+ * requestAnimationFrame loop running for the whole session — burning main
+ * thread time on an animation nobody can see any more.
+ */
+const destroyLottie = () => {
+  if (lottieAnim) {
+    lottieAnim.destroy();
+    lottieAnim = null;
+  }
+};
 
 /**
  * Cycles through the loading messages to keep the user engaged.
@@ -57,7 +73,11 @@ const finish = () => {
   if (messageInterval) clearInterval(messageInterval);
   currentMessage.value = "Welcome!";
   // Slight delay before hiding to show the "Welcome!" message
-  setTimeout(() => finishLoading(), 400);
+  setTimeout(() => {
+    finishLoading();
+    // Overlay fades out over 0.5s (.splash-leave); drop the animation once gone.
+    setTimeout(destroyLottie, 600);
+  }, 400);
 };
 
 onMounted(async () => {
@@ -66,7 +86,7 @@ onMounted(async () => {
   // Load the Lottie animation dynamically to reduce initial bundle size
   if (lottieContainer.value) {
     const lottie = (await import('lottie-web')).default;
-    lottie.loadAnimation({
+    lottieAnim = lottie.loadAnimation({
       container : lottieContainer.value,
       renderer  : 'svg',
       loop      : true,
@@ -91,6 +111,7 @@ onMounted(async () => {
 watch(isDataReady, (ready) => { if (ready) finish(); });
 onUnmounted(() => {
   if (messageInterval) clearInterval(messageInterval);
+  destroyLottie();
 });
 </script>
 

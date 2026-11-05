@@ -37,6 +37,25 @@ const BLOCK_SELECTORS = [
 let particles: Particle[] = [];
 let animationId = 0;
 
+// The loop is only kept alive while there is something to draw. It stops itself
+// once the last particle dies and the cursor has left, and is restarted by
+// pointer movement. Previously it ran for the whole session, repainting the
+// full viewport every frame even on an idle, untouched page.
+let running = false;
+let ctxRef: CanvasRenderingContext2D | null = null;
+let canvasEl: HTMLCanvasElement | null = null;
+
+const startLoop = () => {
+  if (running || !ctxRef || !canvasEl) return;
+  running = true;
+  animationId = requestAnimationFrame((ts) => draw(ctxRef!, canvasEl!, ts));
+};
+
+const stopLoop = () => {
+  running = false;
+  cancelAnimationFrame(animationId);
+};
+
 // Real mouse position (updated immediately)
 let mouse = { x: -9999, y: -9999 };
 
@@ -122,6 +141,12 @@ const draw = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, now: num
     ctx.fill();
   }
 
+  // Nothing left on screen and no cursor to spawn from — idle until input.
+  if (particles.length === 0 && mouse.x < 0) {
+    running = false;
+    return;
+  }
+
   animationId = requestAnimationFrame((ts) => draw(ctx, canvas, ts));
 };
 
@@ -131,10 +156,19 @@ const resize = (canvas: HTMLCanvasElement) => {
 };
 
 onMounted(() => {
+  // This is a cursor-trail effect: it spawns particles from the pointer and has
+  // nothing to show without one. Skip it entirely on touch devices (where it
+  // would only cost battery) and when the visitor asked for reduced motion.
+  const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (coarsePointer || reducedMotion) return;
+
   const canvas = canvasRef.value;
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
+  ctxRef = ctx;
+  canvasEl = canvas;
 
   resize(canvas);
   const onResize = () => resize(canvas);
@@ -153,6 +187,8 @@ onMounted(() => {
     // Check if over an interactive element
     const target = e.target as Element;
     isOverInteractive = !!target.closest(BLOCK_SELECTORS);
+
+    startLoop();
   };
 
   const onMouseLeave = () => {
@@ -162,16 +198,26 @@ onMounted(() => {
     lagMouse.y = -9999;
   };
 
+  // A hidden tab should not be animating at all.
+  const onVisibility = () => {
+    if (document.hidden) stopLoop();
+    else if (particles.length > 0 || mouse.x > 0) startLoop();
+  };
+
   window.addEventListener('mousemove', onMouseMove);
   window.addEventListener('mouseleave', onMouseLeave);
+  document.addEventListener('visibilitychange', onVisibility);
 
-  animationId = requestAnimationFrame((ts) => draw(ctx, canvas, ts));
+  startLoop();
 
   onUnmounted(() => {
-    cancelAnimationFrame(animationId);
+    stopLoop();
+    ctxRef = null;
+    canvasEl = null;
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mouseleave', onMouseLeave);
     window.removeEventListener('resize', onResize);
+    document.removeEventListener('visibilitychange', onVisibility);
   });
 });
 </script>

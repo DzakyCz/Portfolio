@@ -87,6 +87,8 @@ let w1 = 0  // width of one ROW1 set (measured after mount)
 let w2 = 0  // width of one ROW2 set
 let lastScrollY = 0
 let rafId = 0
+let observer: IntersectionObserver | null = null
+let isOnScreen = false
 
 const tick = () => {
   if (track1Ref.value && w1 > 0) {
@@ -110,10 +112,28 @@ const tick = () => {
   scrollVel *= DECAY
   if (Math.abs(scrollVel) < 0.01) scrollVel = 0
 
+  if (!running) return
   rafId = requestAnimationFrame(tick)
 }
 
+// The marquee used to animate for the entire session, including while it was
+// scrolled far out of view and on hidden tabs. It now runs only while visible.
+let running = false
+
+const startLoop = () => {
+  if (running) return
+  running = true
+  rafId = requestAnimationFrame(tick)
+}
+
+const stopLoop = () => {
+  running = false
+  cancelAnimationFrame(rafId)
+}
+
 onMounted(() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   nextTick(() => {
     // Measure EXACTLY one set — no divide-by-N guessing
     w1 = set1Ref.value?.offsetWidth ?? 0
@@ -122,7 +142,24 @@ onMounted(() => {
     // Row 2 starts one set-width to the left so it enters from left edge
     x2 = -w2
 
-    rafId = requestAnimationFrame(tick)
+    if (reducedMotion) return
+
+    // Only animate while the marquee is actually on screen.
+    const host = set1Ref.value?.closest('div') ?? set1Ref.value
+    if (host && 'IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isOnScreen = !!entry?.isIntersecting
+          if (isOnScreen && !document.hidden) startLoop()
+          else stopLoop()
+        },
+        { rootMargin: '100px' },
+      )
+      observer.observe(host)
+    } else {
+      isOnScreen = true
+      startLoop()
+    }
   })
 
   const onScroll = () => {
@@ -131,10 +168,19 @@ onMounted(() => {
     scrollVel = Math.max(-MAX_VEL, Math.min(MAX_VEL, scrollVel + delta * SCROLL_SENSITIVITY))
   }
 
+  const onVisibility = () => {
+    if (document.hidden) stopLoop()
+    else if (isOnScreen) startLoop()
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true })
+  document.addEventListener('visibilitychange', onVisibility)
+
   onUnmounted(() => {
-    cancelAnimationFrame(rafId)
+    stopLoop()
+    observer?.disconnect()
     window.removeEventListener('scroll', onScroll)
+    document.removeEventListener('visibilitychange', onVisibility)
   })
 })
 </script>
