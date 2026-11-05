@@ -1,12 +1,12 @@
 <template>
   <!-- Dynamic classes for sticky/floating navbar transition based on scroll position -->
   <nav
-    class="fixed z-50 overflow-hidden transition-[max-width,border-radius,background-color,box-shadow,padding,margin,top] duration-300 md:duration-[1200ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] md:[transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
+    class="fixed z-50 overflow-visible md:overflow-hidden transition-[max-width,border-radius,background-color,box-shadow,padding,margin,top] duration-300 md:duration-[1200ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] md:[transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
     :class="[
       isOpen
         ? 'mt-0 max-w-full rounded-none bg-white/95 dark:bg-[#121814]/95 backdrop-blur-xl shadow-2xl px-0'
         : scrolled
-          ? 'mt-2 max-w-4xl rounded-full bg-white/40 dark:bg-[#121814]/80 backdrop-blur-xl shadow-2xl px-2'
+          ? 'mt-0 max-w-full rounded-none px-0 md:mt-2 md:max-w-4xl md:rounded-full md:px-2 bg-white/40 dark:bg-[#121814]/80 backdrop-blur-xl shadow-2xl'
           : 'max-w-full rounded-none bg-white/50 dark:bg-[#090d0b]/70 backdrop-blur-md px-0'
     ]"
     :style="{
@@ -89,24 +89,39 @@
     </div>
 
     <!-- Mobile Menu -->
-    <Transition
-      enter-active-class="transition-[opacity,transform] duration-200 ease-out"
-      enter-from-class="opacity-0 -translate-y-2"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition-[opacity,transform] duration-150 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-2"
+    <!--
+      The panel hangs below the bar in a static, clipped wrapper, so opening it
+      never changes the navbar's height. Only `transform` animates: the
+      compositor can run that on its own, with no layout or paint on the main
+      thread each frame, which is what makes the slide hold a full frame rate.
+
+      The panel is opaque rather than translucent-plus-`backdrop-blur`: a blur
+      would have to be recomputed for the whole panel on every animated frame,
+      which is exactly what kept this from holding 60fps. Opaque also avoids the
+      page showing through, which a 95% background did once the blur was gone.
+    -->
+    <div
+      class="md:hidden absolute top-full inset-x-0 overflow-hidden"
+      :class="isOpen ? 'pointer-events-auto' : 'pointer-events-none'"
     >
-      <div
-        v-if="isOpen"
-        class="md:hidden max-h-[calc(100svh-4rem)] overflow-y-auto overscroll-contain bg-white/95 dark:bg-[#121814]/95 backdrop-blur-md border-b border-white/[0.08]"
+      <Transition
+        enter-active-class="transition-transform duration-[320ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] will-change-transform"
+        enter-from-class="-translate-y-full"
+        enter-to-class="translate-y-0"
+        leave-active-class="transition-transform duration-[220ms] [transition-timing-function:cubic-bezier(0.65,0,0.35,1)] will-change-transform"
+        leave-from-class="translate-y-0"
+        leave-to-class="-translate-y-full"
       >
+        <div
+          v-if="isOpen"
+          class="bg-white dark:bg-[#121814] border-b border-white/[0.08] shadow-xl shadow-black/20 max-h-[calc(100svh-4rem)] overflow-y-auto overscroll-contain"
+        >
         <div class="px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] space-y-1">
           <a
             v-for="link in navLinks"
             :key="link.id"
             :href="`#${link.id}`"
-            class="block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200"
+            class="block px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200"
             :class="
               activeSection === link.id
                 ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-[#12182A]'
@@ -120,8 +135,9 @@
             {{ link.label }}
           </a>
         </div>
-      </div>
-    </Transition>
+        </div>
+      </Transition>
+    </div>
   </nav>
 </template>
 

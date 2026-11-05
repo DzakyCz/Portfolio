@@ -7,7 +7,7 @@
   <div>
     <!-- Portfolio Main Sections: Hero, About, Tech Stack, Projects, Experience, Certifications, Contact -->
     <!-- ==================== HERO ==================== -->
-    <section id="hero" class="relative min-h-[100svh] flex items-center justify-center pt-28 pb-16 sm:pt-32 lg:pt-0 lg:pb-0 overflow-hidden bg-[#f8fafc] dark:bg-[#080B14]">
+    <section id="hero" class="relative min-h-[100svh] flex items-center justify-center pt-28 pb-24 sm:pt-32 lg:pt-0 lg:pb-0 overflow-hidden bg-[#f8fafc] dark:bg-[#080B14]">
       
       <!-- Subtle Grid -->
       <div class="hero-grid opacity-[0.2] dark:opacity-[0.3]" />
