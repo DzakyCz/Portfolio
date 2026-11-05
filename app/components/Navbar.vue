@@ -1,7 +1,7 @@
 <template>
   <!-- Dynamic classes for sticky/floating navbar transition based on scroll position -->
   <nav
-    class="fixed z-50 overflow-hidden transition-all duration-[1200ms] [transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
+    class="fixed z-50 overflow-hidden transition-[max-width,border-radius,background-color,box-shadow,padding,margin,top] duration-300 md:duration-[1200ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] md:[transition-timing-function:cubic-bezier(0.6,0.01,0.05,0.95)] shadow-indigo-500/5 mx-auto left-0 right-0"
     :class="[
       isOpen
         ? 'mt-0 max-w-full rounded-none bg-white/95 dark:bg-[#121814]/95 backdrop-blur-xl shadow-2xl px-0'
@@ -19,7 +19,7 @@
   >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div
-        class="flex items-center justify-between transition-all duration-700"
+        class="flex items-center justify-between transition-[height] duration-300 md:duration-700"
         :class="scrolled ? 'h-14' : 'h-16'"
       >
         <!-- Logo -->
@@ -90,10 +90,10 @@
 
     <!-- Mobile Menu -->
     <Transition
-      enter-active-class="transition-all duration-300 ease-out"
+      enter-active-class="transition-[opacity,transform] duration-200 ease-out"
       enter-from-class="opacity-0 -translate-y-2"
       enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition-all duration-200 ease-in"
+      leave-active-class="transition-[opacity,transform] duration-150 ease-in"
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
