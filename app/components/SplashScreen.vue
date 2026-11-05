@@ -83,9 +83,15 @@ const finish = () => {
 onMounted(async () => {
   startMessageCycle();
   
-  // Load the Lottie animation dynamically to reduce initial bundle size
+  // Load the Lottie animation dynamically to reduce initial bundle size.
+  //
+  // The "light" player is used on purpose: the default lottie-web build ships
+  // the SVG, canvas AND HTML renderers plus an expression evaluator, and
+  // PageSpeed reported ~194 KiB of it as unused. This animation renders with
+  // the SVG renderer and uses no expressions, so the light build produces
+  // identical output for roughly half the bytes.
   if (lottieContainer.value) {
-    const lottie = (await import('lottie-web')).default;
+    const lottie = (await import('lottie-web/build/player/esm/lottie_light.min.js')).default;
     lottieAnim = lottie.loadAnimation({
       container : lottieContainer.value,
       renderer  : 'svg',
