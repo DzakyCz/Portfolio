@@ -31,14 +31,22 @@ export default defineNuxtConfig({
 
 
   googleFonts: {
-    // Curated font families for a premium look & feel
+    // Curated font families for a premium look & feel.
+    // Caveat was dropped — it had no usage anywhere in the app.
     families: {
       Inter: [300, 400, 500, 600, 700],
       Manrope: [400, 500, 600, 700, 800],
       'JetBrains Mono': [400, 500],
-      Caveat: [400, 500, 600, 700],
     },
     display: 'swap',
+    // Only latin ranges are needed; the default pulls cyrillic/greek/vietnamese
+    // too, which added ~70 unused @font-face blocks to the render-blocking CSS.
+    subsets: ['latin', 'latin-ext'],
+    // Self-host the files, but keep them OUT of the CSS. Base64-embedding fonts
+    // inflates the render-blocking stylesheet; separate files load in parallel
+    // and are cached independently.
+    download: true,
+    base64: false,
   },
 
   app: {

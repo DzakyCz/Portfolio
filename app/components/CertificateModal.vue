@@ -25,7 +25,7 @@
           <div class="modal-thumb">
             <img
               v-if="cert.image"
-              :src="cert.image"
+              :src="cert.imageFull || cert.image"
               :alt="cert.title"
               class="modal-img"
             />
@@ -82,6 +82,7 @@ const props = defineProps<{
     title: string;
     description?: string;
     image?: string;
+    imageFull?: string;
     pdfUrl?: string;
     credentialUrl?: string;
   } | null;

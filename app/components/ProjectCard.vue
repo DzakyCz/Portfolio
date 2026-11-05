@@ -15,6 +15,10 @@
         :src="image"
         :alt="title"
         class="project-img"
+        loading="lazy"
+        decoding="async"
+        width="900"
+        height="600"
       />
       <div v-else class="project-placeholder">
         <Icon name="mdi:code-braces" class="w-12 h-12 text-accent/20" />

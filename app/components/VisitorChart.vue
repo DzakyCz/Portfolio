@@ -30,7 +30,7 @@
       </div>
       
       <ClientOnly>
-        <apexchart
+        <ApexChart
           v-if="!isLoading && series && series[0] && series[0].data && series[0].data.length > 0"
           type="area"
           height="300"
@@ -49,7 +49,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
+import { defineAsyncComponent, ref, onMounted, watch } from 'vue';
+
+// ApexCharts (~1.1 MB) used to be registered by a global plugin, which put it in
+// the entry bundle of every page. Only this component ever renders a chart, so
+// it is now pulled in on demand — and only on the client, inside <ClientOnly>.
+const ApexChart = defineAsyncComponent(() => import('vue3-apexcharts').then((m) => m.default));
 
 const { fetchVisitorStats } = usePortfolioData();
 

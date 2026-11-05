@@ -29,14 +29,10 @@ onMounted(() => {
 
 
 <style>
-  /* Critical CSS to prevent FOUC and layout shifts on refresh */
-  [data-loading="true"] .main-content-gate { 
-    opacity: 0 !important; 
-    visibility: hidden !important; 
-  }
-  .main-content-gate {
-    transition: opacity 0.3s ease;
-  }
+  /* The splash overlay below is opaque and covers the viewport, so the main
+     content does not need to be hidden as well. Keeping it visible lets the
+     browser lay out and paint the hero while the splash is still showing,
+     instead of only after it leaves. */
   /* Ensure splash-overlay is always fixed and covers screen even before main CSS */
   .splash-overlay { 
     position: fixed !important; 

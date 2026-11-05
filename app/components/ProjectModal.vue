@@ -15,7 +15,7 @@
           </button>
 
           <div class="project-modal-thumb">
-            <img v-if="project.image" :src="project.image" :alt="project.title" class="project-modal-img" />
+            <img v-if="project.image" :src="project.imageFull || project.image" :alt="project.title" class="project-modal-img" />
             <Icon v-else name="mdi:code-braces" class="w-16 h-16 text-accent/40" />
           </div>
 
@@ -66,6 +66,7 @@ const props = defineProps<{
     title: string;
     description?: string;
     image?: string;
+    imageFull?: string;
     tags?: string[];
     github?: string | null;
     demo?: string | null;

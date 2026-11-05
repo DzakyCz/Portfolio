@@ -35,6 +35,8 @@ export const usePortfolioData = () => {
       projects.value = portfolioData.projects.map((p: any) => ({
         ...p,
         image: p.imageUrl ? p.imageUrl : '',
+        // Larger variant used by the modal; cards stay on the lightweight version
+        imageFull: p.imageUrl ? p.imageUrl.replace(/.webp$/i, '-full.webp') : '',
         // Split the comma-separated tech stack into an array for easier rendering
         tags: p.techStack
           ? p.techStack.split(',').map((t: string) => t.trim()).filter(Boolean)
@@ -47,6 +49,7 @@ export const usePortfolioData = () => {
       certificates.value = portfolioData.certificates.map((c: any) => ({
         ...c,
         image:  c.fileUrl ? c.fileUrl : '',
+        imageFull: c.fileUrl ? c.fileUrl.replace(/.webp$/i, '-full.webp') : '',
         pdfUrl: c.pdfUrl  ? c.pdfUrl  : '',
       }));
 

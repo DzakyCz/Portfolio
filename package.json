@@ -30,6 +30,8 @@
     "@iconify-json/logos": "^1.2.10",
     "@nuxtjs/color-mode": "^4.0.0",
     "@types/node": "^25.4.0",
-    "@vueuse/motion": "^3.0.3"
+    "@vueuse/motion": "^3.0.3",
+    "sharp": "^0.35.5",
+    "subset-font": "^2.9.0"
   }
 }

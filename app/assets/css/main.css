@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Bastliga One is used for one thing only: the "Dzaky" wordmark in the navbar.
+ * The original TTF is 257 KB; this is a WOFF2 subset containing just the glyphs
+ * for that word (9 KB). If the wordmark text ever changes, regenerate it —
+ * other characters are NOT in this file and would fall back to cursive:
+ *   npx subset-font public/fonts/bastliga.ttf <text> --target-format=woff2
+ */
 @font-face {
   font-family: 'Bastliga One';
-  src: url('/fonts/bastliga.ttf') format('truetype');
+  src: url('/fonts/bastliga.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

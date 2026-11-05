@@ -10,6 +10,10 @@
         :src="image"
         :alt="title"
         class="cert-img"
+        loading="lazy"
+        decoding="async"
+        width="900"
+        height="637"
       />
       <div v-else class="cert-placeholder">
         <Icon name="mdi:certificate-outline" class="w-12 h-12 text-accent/20" />

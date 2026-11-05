@@ -69,8 +69,12 @@
                   <div class="relative overflow-hidden aspect-[2/3]">
                     <!-- Profile image -->
                     <img
-                      src="/Dzakynobg2.png"
+                      src="/Dzakynobg2.webp"
                       alt="Dzaky Dhiya Ul-Haq"
+                      width="700"
+                      height="993"
+                      fetchpriority="high"
+                      decoding="async"
                       class="w-full h-full object-cover brightness-90 group-hover:brightness-125 group-hover:scale-[1.2] transition-all duration-700"
                     />
                     
@@ -117,8 +121,12 @@
               <!-- Portrait Photo Only with Home Page Effects & Darkened Tone -->
               <div class="relative h-full min-h-[400px] w-full overflow-hidden">
                 <img
-                  src="/Dzaky2.png"
+                  src="/Dzaky2.webp"
                   alt="Dzaky Dhiya Ul-Haq"
+                  width="720"
+                  height="1280"
+                  loading="lazy"
+                  decoding="async"
                   class="absolute inset-0 w-full h-full object-cover brightness-90 contrast-[1.05] group-hover:scale-[1.2] transition-transform duration-700 ease-out z-0"
                 />
                 
@@ -167,7 +175,7 @@
           <ScrollReveal animation="fade-up" :delay="200" class="lg:col-span-2 flex items-center justify-start w-full min-w-0 max-w-full overflow-hidden relative z-20">
             <GitHubCalendar 
               username="DzakyCz" 
-              avatar-url="https://github.com/DzakyCz.png"
+              avatar-url="https://github.com/DzakyCz.png?size=120"
               class="w-full justify-start max-w-full mt-2"
             />
           </ScrollReveal>
@@ -346,6 +354,10 @@
                           v-if="exp.logo"
                           :src="exp.logo"
                           :alt="exp.company"
+                          width="32"
+                          height="32"
+                          loading="lazy"
+                          decoding="async"
                           class="w-full h-full object-contain"
                         />
                         <Icon v-else name="mdi:office-building-outline" class="w-5 h-5 text-gray-500" />
@@ -542,6 +554,7 @@ const selectedCert = ref<{
   title: string;
   description?: string;
   image?: string;
+  imageFull?: string;
   credentialUrl?: string;
 } | null>(null);
 
